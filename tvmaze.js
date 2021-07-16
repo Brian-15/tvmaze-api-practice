@@ -22,7 +22,7 @@ async function searchShows(query) {
 
   const result = [];
 
-  const shows = await axios.get(`http://api.tvmaze.com/search/shows?q=${query}`);
+  const shows = await axios.get(`https://api.tvmaze.com/search/shows?q=${query}`);
 
   for (let show of shows.data) {
     result.push({
@@ -110,7 +110,7 @@ async function getEpisodes(id) {
   //       you can get this by making GET request to
   //       http://api.tvmaze.com/shows/SHOW-ID-HERE/episodes
 
-  const episodes = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+  const episodes = await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`);
   const result = [];
 
   // push episode data to result array
