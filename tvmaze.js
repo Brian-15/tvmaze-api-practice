@@ -54,12 +54,15 @@ function populateShows(shows) {
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
-             <img class="card-img-top" src="${show.image}">
            </div>
          </div>
        </div>
       `);
-
+    
+    if (show.image) {
+      $item.find('.card-body').append(`<img class="card-img-top" src="${show.image}" placeholder="">`)
+    }
+    
     $showsList.append($item);
   }
 }
