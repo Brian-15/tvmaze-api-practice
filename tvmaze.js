@@ -30,7 +30,7 @@ async function searchShows(query) {
       id: show.show.id,
       name: show.show.name,
       summary: show.show.summary,
-      image: show.show.image.original,
+      image: show.show.image.medium,
     });
   }
 
@@ -54,7 +54,7 @@ function populateShows(shows) {
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
-             <img class="card-img-top" src="${show.image.medium}">
+             <img class="card-img-top" src="${show.image}">
            </div>
          </div>
        </div>
