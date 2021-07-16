@@ -22,14 +22,15 @@ async function searchShows(query) {
 
   const result = [];
 
-  const shows = axios.get(`http://api.tvmaze.com/search/shows?q=${query}`);
+  const shows = await axios.get(`http://api.tvmaze.com/search/shows?q=${query}`);
 
-  for (let show in shows) {
+  for (let show of shows.data) {
+    console.log(show);
     result.push({
       id: show.show.id,
       name: show.show.name,
       summary: show.show.summary,
-      image: show.show.image.medium,
+      image: show.show.image.original,
     });
   }
 
@@ -53,6 +54,7 @@ function populateShows(shows) {
            <div class="card-body">
              <h5 class="card-title">${show.name}</h5>
              <p class="card-text">${show.summary}</p>
+             <img class="card-img-top" src="${show.image.medium}">
            </div>
          </div>
        </div>
